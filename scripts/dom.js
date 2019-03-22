@@ -17,15 +17,22 @@ jewel.dom = (function() {
         $ : $, 
         hasClass : hasClass, 
         addClass : addClass, 
-        removeClass : removeClass     }; 
+        removeClass : removeClass    
+    };
+
+    function bind(element, event, handler) { 
+        if(typeof element == "string") {
+            element=$(element)[0]
+        }
+    
+        element.addEventListner(event,handler,false)
     }
     
-    function bind(element, event, handler) { 
-        if (typeof element == "string") { 
-            element = $(element)[0]; 
-        } 
-        element.addEventListener(event, handler, false) 
-    } 
-    return { 
+    return {
         bind : bind
-)};
+    };
+
+})();
+
+
+
